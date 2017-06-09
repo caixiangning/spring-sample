@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 
+	id: Bean的唯一标识，Ioc容器中唯一不可重复。
+	class: Bean实现所需的全限定类名(包名.类名)
+	name: Bean的别名
+	init-method: 指定Bean初始化时执行的操作
+	destroy-method: 指定Bean销毁时执行的操作
+	scope: Bean作用域，默认sig
+	lazy-init: 延迟加载，访问/使用时才会实例化，容器启动时不会对其进行实例化
+	factory-bean：指定用于实例化Bean所使用的工厂类(遗留应用的使用策略，在Spring应用中最好使用Spring Bean Factory创建)
+	factory-method：指定用于实例化Bean所使用的工厂方法(遗留应用的使用策略，在Spring应用中最好使用Spring Bean Factory创建)
+	其他配置项：depends-on、abstract、autowire-candidate、autowire、parent、primary
+	 -->
+	
+	<!-- 如果不指定id，则默认Bean的id是全限定类名(包名.类名) -->
+	<!-- 如果不指定scope则默认是singleton单例模式 -->
+	<bean class="org.spring.ioc.xml.bean.config.BeanConfig"></bean>
+	
+	<!-- 如果不指定lazy-init则默认Bean是不延迟加载的，容器启动即实例化Bean -->
+	<bean id="beanConfig1" class="org.spring.ioc.xml.bean.config.BeanConfig1"></bean>
+	
+	<!-- 如果使用lazy-init="true"则容器启动不实例化Bean，初次使用才会实例化 -->
+	<bean id="beanConfig2" class="org.spring.ioc.xml.bean.config.BeanConfig2" lazy-init="true"></bean>
+	
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-init-method="defaultInit" default-destroy-method="defaultDestroy">
+	<!-- 在根节点beans中配置default-init-method和default-destroy-method可以指定全局bean
+	默认执行初始化和销毁操作所执行的方法 -->
+	
+	<!-- bean不指定init-method和destroy-method则初始化和销毁时使用使用全局默认指定的方法,
+	 而如果bean指定init-method和destroy-method则初始化和销毁时使用bean标签中指定的方法，
+	而不使用全局默认指定的方法-->
+	<bean id="beanDefaultLifeCycle" class="org.spring.ioc.xml.bean.lifecycle.BeanDefaultLifeCycle"></bean>
+	<!-- <bean id="beanDefaultLifeCycle" class="org.spring.ioc.xml.bean.lifecycle.BeanDefaultLifeCycle"
+		init-method="init" destroy-method="destroy"></bean> -->
+
+</beans>

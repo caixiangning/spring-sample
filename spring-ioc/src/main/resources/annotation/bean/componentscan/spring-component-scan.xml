@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- <context:annotation-config/> -->
+	
+	<!-- 扫描指定包，自动检测类并注册装配相应Bean
+	(必须使用@Repository、@Service、@Controller、@Component注解类，并使用@Autowired、@Resource、@Required装配类)
+	包含 <context:annotation-config/>完成的工作，所以使用该配置就可以不使用<context:annotation-config/>
+	类自动发现并注册Bean的条件是：使用@Repository、@Service、@Controller、@Component注解-->
+	<context:component-scan base-package="org.spring.ioc.annotation.bean.componentscan"/>
+	
+</beans>

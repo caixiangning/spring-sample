@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-autowire="byType">
+     
+     <!-- 在根元素beans中使用 default-autowire="byType"指定按照类型自动装配，只能用于设值注入，
+     	如果未找到装配的Bean则不装配并且不抛出异常，但是如果存在多个该类型的Bean，则抛出异常。
+     	相当于使用默认构造函数构造对象后不调用Setter方法，这里的属性名称指的是setXxx中的xxx而不是私有成员变量的名称，
+     	并且通常情况下setXxx中Xxx是与属性名称是相同的,参照使用Eclipse自动生成setter。)-->
+        
+	<bean id="accountDao1" class="org.spring.ioc.xml.bean.autowire.dao.impl.AccountDaoImpl1"></bean>
+	
+	<!-- <bean id="accountDao2" class="org.spring.ioc.xml.bean.autowire.dao.impl.AccountDaoImpl2"></bean> -->
+	
+	<bean id="accountService1" class="org.spring.ioc.xml.bean.autowire.service.impl.AccountServiceImpl2"></bean>
+	
+</beans>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Bean实例化：使用默认构造器(无参构造器)-->
+	<!-- class属性指定实例化对象所使用的类，容器使用反射调用其构造函数创建bean -->
+	<bean id="accountDaoImpl1" class="org.spring.ioc.xml.bean.instantiation.dao.impl.AccountDaoImpl1"></bean>
+
+	<!--  Bean实例化：使用静态工厂方法 -->
+	<!--  `class`属性指定工厂方法类，`factory-method`属性指定工厂方法类中用于创建bean的方法名称-->
+	<bean id="accountDaoImpl2" class="org.spring.ioc.xml.bean.instantiation.dao.impl.AccountDaoImpl2Factory"
+		factory-method="createInstance"></bean>
+
+	<!--  Bean实例化：使用实例工厂方法 -->
+	<!-- 使用实例工厂方法的方式实例化，是调用容器中已存在的bean的一个非静态方法来创建一个bean。
+	用法是：
+	1、 class 属性置空设置。
+	2、设置 factory-bean 属性，其值创建Bean的实例工厂类的bean，该bean包含可供调用的创建对象的实例方法。
+	3、设置 factory-method 属性，其值为工厂方法名。 -->
+	<bean id="accountDaoImpl3Factory" class="org.spring.ioc.xml.bean.instantiation.dao.impl.AccountDaoImpl3Factory"></bean>
+	<bean id="accountDaoImpl3" factory-bean="accountDaoImpl3Factory"
+		factory-method="createAccountDao"></bean>
+
+</beans>

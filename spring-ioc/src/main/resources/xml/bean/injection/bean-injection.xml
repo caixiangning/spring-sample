@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+	<bean id="accountDao1" class="org.spring.ioc.xml.bean.injection.dao.impl.AccountDaoImpl1"></bean>
+	
+	<bean id="accountDao2" class="org.spring.ioc.xml.bean.injection.dao.impl.AccountDaoImpl2"></bean>
+	
+	<!-- 依赖注入的两种方式 -->
+	<!-- 设值注入 -->
+	<bean id="accountService1" class="org.spring.ioc.xml.bean.injection.service.impl.AccountServiceImpl1">
+		<!-- 设值注入中的property的name属性的值与设值器setter中setXXX中的xXX一致(首字母小写)
+		，与类的属性以及设值器参数无关,ref指定注入的Bean的id-->
+		<property name="accountDao" ref="accountDao1"></property>
+	</bean>
+	
+	<!-- 构造器注入 -->
+    <bean id="accountService2" class="org.spring.ioc.xml.bean.injection.service.impl.AccountServiceImpl2">
+    	<!-- 构造器注入中的constructor-arg的name属性的值与构造器参数有关与类的属性名称无关 -->
+    	<constructor-arg name="accountDao" ref="accountDao2"></constructor-arg>
+    </bean>
+    
+</beans>

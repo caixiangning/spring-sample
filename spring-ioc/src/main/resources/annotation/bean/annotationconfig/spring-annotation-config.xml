@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- <context:annotation-config/>的作用是向Spring容器注册以下四个BeanPostProcessor：
+	AutowiredAnnotationBeanPostProcessor、CommonAnnotationBeanPostProcessor、
+	PersistenceAnnotationBeanPostProcessor、RequiredAnnotationBeanPostProcessor
+	也就是说激活@Autowired、@Resource、@Required、@PersistenceContext等注解，
+	也就是说将注册到容器中并使用这些注解装配的Bean完成自动装配，不负责自动注册Bean，也就是说Bean还是得在XML文件中声明。
+	 -->
+	<context:annotation-config/>
+	
+	<bean id="accountDao" class="org.spring.ioc.annotation.bean.annotationconfig.dao.impl.AccountDaoImpl"></bean>
+	
+	<bean id="accountService" class="org.spring.ioc.annotation.bean.annotationconfig.service.impl.AccountServiceImpl"></bean>
+</beans>

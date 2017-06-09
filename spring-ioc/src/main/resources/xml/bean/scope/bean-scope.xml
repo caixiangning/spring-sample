@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 默认单例模式，不使用scope等同于scope="singleton" -->
+	<bean id="accountDao" class="org.spring.ioc.xml.bean.scope.dao.impl.AccountDaoImpl"></bean>
+	
+	<!-- 单例(singleton)模式：单个ioc容器只创建一份实例对象 -->
+	<bean id="accountDao1" class="org.spring.ioc.xml.bean.scope.dao.impl.AccountDaoImpl"
+		scope="singleton"></bean>
+		
+	<!-- prototype模式：每次请求/每次使用创建新实例 -->
+	<bean id="accountDao2" class="org.spring.ioc.xml.bean.scope.dao.impl.AccountDaoImpl"
+		scope="prototype"></bean>
+</beans>

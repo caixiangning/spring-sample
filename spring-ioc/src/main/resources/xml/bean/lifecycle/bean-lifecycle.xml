@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 指定Bean初始化执行操作：
+	指定Bean初始化执行操作：使用<Bean>元素的init-method属性的值来指定Bean初始化执行的方法,
+	init-method属性的值是该bean实现类中的一个方法名称。 -->
+	
+	<!-- 指定Bean销毁执行操作：
+	指定Bean销毁执行操作：用<Bean>元素的destroy-method属性的值来指定Bean销毁执行的方法,
+	destroy-method属性的值是该bean实现类中的一个方法名称-->
+	
+	<bean id="beanLifeCycle" class="org.spring.ioc.xml.bean.lifecycle.BeanLifeCycle"
+		init-method="init" destroy-method="destroy"></bean>
+
+</beans>
